@@ -1,0 +1,15 @@
+services:
+   nginx:
+      image: nginx
+      volumes:
+         - ./nginx:/etc/nginx/conf.d
+         - ./client:/var/www/client
+      ports:
+         - "80:80"
+
+   api:
+      image: api-flask
+      volumes:
+         - ./api/.env:/api-flask/.env
+      expose:
+         - "5000"
